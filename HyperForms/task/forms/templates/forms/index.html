@@ -1,2 +1,22 @@
 <h2>Welcome to the reading club</h2>
-<p><b>The link to the introduction form is coming soon</b></p>
+<p>This is the best reading club you can even think of, please join.</p>
+<button type="button"><a href="register/"><u>Click here to join!</u></a></button>
+<p><b>Current club participants:</b></p>
+{% if data_avail %}
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Favorite book</th>
+        </tr>
+        {% for record in form %}
+        <tr>
+            <td>{{ record.name }}</td>
+            <td>{{ record.age }}</td>
+            <td>{{ record.favorite_book }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No participants so far. Be the first!</p>
+{% endif %}
